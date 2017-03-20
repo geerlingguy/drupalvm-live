@@ -11,7 +11,7 @@ drupal_composer_path: false
 drupal_composer_install_dir: "/var/www/drupalvm"
 drupal_core_path: "{{ drupal_composer_install_dir }}/web"
 drupal_composer_dependencies: []
-drupal_enabled_modules:
+drupal_enable_modules:
   - admin_toolbar
   - pathauto
   - redirect
@@ -21,3 +21,4 @@ php_version: "7.1"
 installed_extras:
   - drush
   - mailhog
+  - varnish
