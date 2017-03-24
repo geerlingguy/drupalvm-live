@@ -6,7 +6,7 @@ This project was built using the [`drupal-project`](https://github.com/drupal-co
 
 You should have the following installed on your local environment prior to working on this project:
 
-  1. Vagrant and VirtualBox
+  1. Vagrant, VirtualBox and Ansible
   2. PHP and Composer
   3. Vagrant plugins: `vagrant-vbguest`, `vagrant-hostsupdater`
 
@@ -21,7 +21,13 @@ Once that's completed, you can visit [http://local.drupalvm.com/](http://local.d
 
 ## Prod setup
 
-TODO.
+  1. Create a DigitalOcean Droplet (or basically any other VPS that gives you full control/root). (The root user account should have your SSH key already added.)
+  2. Run the initialization playbook (inside the `vendor/geerlingguy/drupal-vm/examples/prod/bootstrap/` folder): `ansible-playbook -i ../../../../../../vm/inventory init.yml -e "ansible_ssh_user=root"`
+  3. Run the main Drupal VM playbook to build the server: `DRUPALVM_ENV=prod ansible-playbook -i vm/inventory vendor/geerlingguy/drupal-vm/provisioning/playbook.yml -e "config_dir=$(pwd)/vm" --sudo --ask-sudo-pass`
+
+Notes:
+
+  - Only the repository's owner has the SSH keys for accessing the actual live `prod.drupalvm.com` site, and the Vault password for the protected variables inside `secrets.yml`.
 
 ## Keeping things Secret
 
