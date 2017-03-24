@@ -1,0 +1,2 @@
+[drupalvm]
+138.197.108.187 ansible_ssh_user=geerlingguy

@@ -1,13 +1,8 @@
 ---
-# Local Vagrant options.
-vagrant_hostname: local.drupalvm.com
-vagrant_machine_name: local-drupalvm
-vagrant_ip: 192.168.88.10
-
 # Composer project settings.
 drupal_build_composer_project: false
 drupal_build_composer: true
-drupal_composer_path: false
+drupal_composer_path: "{{ config_dir }}/../composer.json"
 drupal_composer_install_dir: "/var/www/drupalvm"
 drupal_core_path: "{{ drupal_composer_install_dir }}/web"
 drupal_composer_dependencies: []
@@ -18,7 +13,23 @@ drupal_enable_modules:
 
 # Other overrides.
 php_version: "7.1"
+php_sendmail_path: "/usr/sbin/sendmail -t -i"
 installed_extras:
   - drush
-  - mailhog
   - varnish
+
+# Other secure defaults.
+dashboard_install_dir: ''
+apache_packages_state: installed
+
+# Restrict the firewall to only ports that are required for external services.
+firewall_allowed_tcp_ports:
+  - "22"
+  - "80"
+  - "443"
+firewall_log_dropped_packets: true
+
+# Set Apache to listen on port 81 (internal only), and Varnish on 80.
+apache_listen_port: "81"
+varnish_listen_port: "80"
+varnish_default_backend_port: "81"

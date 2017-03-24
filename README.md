@@ -23,6 +23,18 @@ Once that's completed, you can visit [http://local.drupalvm.com/](http://local.d
 
 TODO.
 
+## Keeping things Secret
+
+If you decide to store some private variables in an Ansible Vault-encrypted vars file, then you should run all Vagrant commands like:
+
+    DRUPALVM_ANSIBLE_ARGS='--ask-vault-pass' vagrant [command]
+
+And when running Ansible commands, use:
+
+    ansible-playbook [args] --ask-vault-pass
+
+You can also pass a file path containing the vault password, if you need to do automated deployments. See Ansible's [Vault Documentation](http://docs.ansible.com/ansible/playbooks_vault.html#creating-encrypted-files) for more info.
+
 ## Author
 
 This project is maintained by [Jeff Geerling](https://www.jeffgeerling.com/), author of [Ansible for DevOps](https://www.ansiblefordevops.com) and maintainer of [Drupal VM](https://www.drupalvm.com).
