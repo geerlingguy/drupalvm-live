@@ -1,4 +1,8 @@
 ---
+drupal_deploy: true
+drupal_deploy_repo: "git@github.com:geerlingguy/drupalvm-live.git"
+drupal_deploy_dir: /var/www/drupal
+
 drupal_domain: "prod.drupalvm.com"
 vagrant_hostname: "{{ drupal_domain }}"
 

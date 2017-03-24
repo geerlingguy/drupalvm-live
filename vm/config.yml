@@ -1,11 +1,12 @@
 ---
 # Composer project settings.
 drupal_build_composer_project: false
-drupal_build_composer: true
-drupal_composer_path: "{{ config_dir }}/../composer.json"
-drupal_composer_install_dir: "/var/www/drupalvm"
-drupal_core_path: "{{ drupal_composer_install_dir }}/web"
+drupal_build_composer: false
 drupal_composer_dependencies: []
+
+# Drupal install settings.
+drupal_core_path: "/var/www/drupal/web"
+drupal_install_site: true
 drupal_enable_modules:
   - admin_toolbar
   - pathauto
