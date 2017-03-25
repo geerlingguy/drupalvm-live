@@ -5,10 +5,12 @@ drupal_build_composer: false
 drupal_composer_dependencies: []
 
 # Drupal install settings.
+drupal_site_name: "Drupal VM Production Demo"
 drupal_core_path: "/var/www/drupal/web"
 drupal_install_site: true
 drupal_enable_modules:
   - admin_toolbar
+  - admin_toolbar_tools
   - pathauto
   - redirect
 
