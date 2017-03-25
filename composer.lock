@@ -5249,16 +5249,16 @@
         },
         {
             "name": "geerlingguy/drupal-vm",
-            "version": "4.3.1",
+            "version": "4.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/geerlingguy/drupal-vm.git",
-                "reference": "c583688403fd770299aa1516e8bd416243b6cc52"
+                "reference": "281c318d0f8958d91e745fda36820d9567c0f837"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/geerlingguy/drupal-vm/zipball/c583688403fd770299aa1516e8bd416243b6cc52",
-                "reference": "c583688403fd770299aa1516e8bd416243b6cc52",
+                "url": "https://api.github.com/repos/geerlingguy/drupal-vm/zipball/281c318d0f8958d91e745fda36820d9567c0f837",
+                "reference": "281c318d0f8958d91e745fda36820d9567c0f837",
                 "shasum": ""
             },
             "type": "vm",
@@ -5284,7 +5284,7 @@
                 "virtual machine",
                 "vm"
             ],
-            "time": "2017-03-13T22:18:19+00:00"
+            "time": "2017-03-25T03:18:11+00:00"
         },
         {
             "name": "jcalderonzumba/gastonjs",

@@ -1,11 +1,14 @@
 ---
+# Deploy from the project's Git repository.
 drupal_deploy: true
 drupal_deploy_repo: "git@github.com:geerlingguy/drupalvm-live.git"
 drupal_deploy_dir: /var/www/drupal
 
+# Set the domain for this site appropriately.
 drupal_domain: "prod.drupalvm.com"
 vagrant_hostname: "{{ drupal_domain }}"
 
+# Only add the production docroot virtualhost.
 apache_vhosts:
   - servername: "{{ drupal_domain }}"
     documentroot: "{{ drupal_core_path }}"
