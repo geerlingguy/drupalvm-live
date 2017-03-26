@@ -15,9 +15,11 @@ You should have the following installed on your local environment prior to worki
 If this is the first time you've cloned the project, run the following commands to get started developing:
 
   1. `composer install`
-  2. `vagrant up`
+  2. `DRUPALVM_ANSIBLE_ARGS='--ask-vault-pass' vagrant up`
 
 Once that's completed, you can visit [http://local.drupalvm.com/](http://local.drupalvm.com/) in your browser to see the site locally.
+
+> Note: You can remove the `secrets.yml` file from the `vm` directory if you want to avoid using the vault password for testing purposes. For the local environment, the variables in that file are overridden in `vagrant.config.yml` anyways.
 
 ## Prod setup
 
