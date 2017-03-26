@@ -4,6 +4,12 @@ vagrant_hostname: local.drupalvm.com
 vagrant_machine_name: local-drupalvm
 vagrant_ip: 192.168.88.10
 
+# Configure the synced folder.
+vagrant_synced_folders:
+  - local_path: .
+    destination: /var/www/drupal
+    type: nfs
+
 # Undo some of the extra-hardened security settings in config.yml.
 drupal_account_pass: admin
 drupal_db_password: drupal
