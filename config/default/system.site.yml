@@ -1,0 +1,14 @@
+uuid: 510efff7-e07a-4775-abf2-6bb39e5c2bcd
+name: 'Drupal VM Production Demo'
+mail: admin@example.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node/1
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: AyT9s8OUcclfALRE_imByOMgtZ19eOlqdF6zI3p7yqo
