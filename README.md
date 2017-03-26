@@ -2,6 +2,8 @@
 
 This project was built using the [`drupal-project`](https://github.com/drupal-composer/drupal-project) Drupal Composer template, and is used to demonstrate [Drupal VM](https://www.drupalvm.com)'s local and production environment management capabilities.
 
+The motivation behind this project and the process to build the initial version are documented in Jeff Geerling's blog post [Soup to Nuts: Using Drupal VM to build local and prod](https://www.jeffgeerling.com/blog/2017/soup-nuts-using-drupal-vm-build-local-and-prod).
+
 ## Prerequisites
 
 You should have the following installed on your local environment prior to working on this project:
