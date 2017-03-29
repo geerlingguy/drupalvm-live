@@ -20,6 +20,7 @@ installed_extras:
   - drush
   - mailhog
   - varnish
+  - solr
 
 dashboard_install_dir: /var/www/dashboard
 extra_security_enabled: false

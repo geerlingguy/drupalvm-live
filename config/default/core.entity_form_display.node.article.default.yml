@@ -4,11 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.node.article.body
+    - field.field.node.article.field_comments
     - field.field.node.article.field_image
     - field.field.node.article.field_tags
     - image.style.thumbnail
     - node.type.article
   module:
+    - comment
     - image
     - path
     - text
@@ -32,6 +34,11 @@ content:
     weight: 10
     settings: {  }
     third_party_settings: {  }
+  field_comments:
+    weight: 31
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
   field_image:
     type: image_image
     weight: 4

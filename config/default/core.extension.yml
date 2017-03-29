@@ -5,12 +5,14 @@ module:
   block_content: 0
   breakpoint: 0
   ckeditor: 0
+  comment: 0
   config: 0
   ctools: 0
   datetime: 0
   dblog: 0
   editor: 0
   field: 0
+  field_ui: 0
   file: 0
   filter: 0
   image: 0
@@ -20,6 +22,8 @@ module:
   options: 0
   path: 0
   pathauto: 0
+  search_api: 0
+  search_api_solr: 0
   system: 0
   taxonomy: 0
   text: 0
@@ -27,6 +31,7 @@ module:
   toolbar: 0
   update: 0
   user: 0
+  views_ui: 0
   menu_link_content: 1
   views: 10
   standard: 1000
