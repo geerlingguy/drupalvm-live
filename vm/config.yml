@@ -25,6 +25,10 @@ php_sendmail_path: "/usr/sbin/sendmail -t -i"
 installed_extras:
   - drush
   - varnish
+  - solr
+
+post_provision_scripts:
+  - "../../../../scripts/configure-solr.sh"
 
 # Other secure defaults.
 dashboard_install_dir: ''
