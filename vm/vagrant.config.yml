@@ -3,6 +3,7 @@
 vagrant_hostname: local.drupalvm.com
 vagrant_machine_name: local-drupalvm
 vagrant_ip: 192.168.88.10
+ssh_home: "/var/www/drupal"
 
 # Configure the synced folder.
 vagrant_synced_folders:
@@ -20,6 +21,7 @@ installed_extras:
   - drush
   - mailhog
   - varnish
+  - selenium
   - solr
 
 dashboard_install_dir: /var/www/dashboard
