@@ -28,7 +28,7 @@ Once that's completed, you can visit [http://local.drupalvm.com/](http://local.d
   1. Create a DigitalOcean Droplet (or basically any other VPS that gives you full control/root). The root user account on this VM should have your SSH key already added.
   2. Copy the `example.vars.yml` file to `vars.yml` inside `vendor/geerlingguy/drupal-vm/examples/prod/bootstrap/` (for one-time use), and customize to your liking.
   3. Run the initialization playbook from the project root directory: `ansible-playbook -i vm/inventory vendor/geerlingguy/drupal-vm/examples/prod/bootstrap/init.yml -e "ansible_ssh_user=root"`
-  4. Run the main Drupal VM playbook to build the server: `DRUPALVM_ENV=prod ansible-playbook -i vm/inventory vendor/geerlingguy/drupal-vm/provisioning/playbook.yml -e "config_dir=$(pwd)/vm" --sudo --ask-sudo-pass --ask-vault-pass`
+  4. Run the main Drupal VM playbook to build the server: `DRUPALVM_ENV=prod ansible-playbook -i vm/inventory vendor/geerlingguy/drupal-vm/provisioning/playbook.yml -e "config_dir=$(pwd)/vm" --become --ask-become-pass --ask-vault-pass`
 
 Notes:
 
