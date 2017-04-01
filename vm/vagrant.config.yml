@@ -34,6 +34,7 @@ firewall_allowed_tcp_ports:
   - "81"
   - "443"
   - "8025"
+  - "8983"
 firewall_log_dropped_packets: false
 
 # Set Apache to listen on port 80, and Varnish on 81.
