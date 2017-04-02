@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<ruleset name="App">
+    <description>project PHP_CodeSniffer standards overrides.</description>
+
+    <!-- Set installed_paths. -->
+    <config name="installed_paths" value="../../drupal/coder/coder_sniffer"/>
+
+    <!-- Set default extensions. -->
+    <arg name="extensions" value="module,install,profile,php,theme,inc,test"/>
+
+    <!-- Use colors in output -->
+    <arg name="colors"/>
+
+    <!-- Include existing standards. -->
+    <rule ref="Drupal"/>
+    <rule ref="DrupalPractice"/>
+
+    <file>./web</file>
+
+    <!-- Exclude core. -->
+    <exclude-pattern>*/web/core/*</exclude-pattern>
+
+    <!-- Exclude autoloader. -->
+    <exclude-pattern>*/web/autoload.php</exclude-pattern>
+
+    <!-- Exclude sites directory. -->
+    <exclude-pattern>*/web/sites/*</exclude-pattern>
+
+    <!-- Exclude contrib modules. -->
+    <exclude-pattern>*/modules/contrib/*</exclude-pattern>
+
+    <!--Force short array syntax.-->
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax.Found">
+        <type>warning</type>
+    </rule>
+</ruleset>
