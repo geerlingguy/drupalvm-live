@@ -60,6 +60,7 @@
         ],
         "provision": "vagrant reload --provision",
         "test": [
+            "@composer validate",
             "@code-review",
             "@behat"
         ],
