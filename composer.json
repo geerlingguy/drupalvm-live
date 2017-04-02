@@ -55,7 +55,7 @@
     },
     "scripts": {
         "up": [
-            "@composer install -n --prefer-dist",
+            "@composer install -n --prefer-dist --ansi",
             "vagrant up"
         ],
         "provision": "vagrant reload --provision",
