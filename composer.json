@@ -56,9 +56,9 @@
     "scripts": {
         "up": [
             "@composer install -n --prefer-dist --ansi",
-            "vagrant up"
+            "vagrant up --color"
         ],
-        "provision": "vagrant reload --provision",
+        "provision": "vagrant reload --provision --color",
         "test": [
             "@composer validate",
             "@code-review",
