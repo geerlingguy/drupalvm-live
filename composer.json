@@ -39,7 +39,9 @@
         "symfony/css-selector": "~2.8",
         "drupal/devel": "^1.0",
         "geerlingguy/drupal-vm": "^4.3",
-        "drupal/drupal-extension": "^3.2"
+        "drupal/drupal-extension": "^3.2",
+        "consolidation/robo": "^1.0",
+        "drupal/coder": "^8.2"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -52,6 +54,20 @@
         ]
     },
     "scripts": {
+        "up": [
+            "@composer install -n --prefer-dist --ansi",
+            "vagrant up --color"
+        ],
+        "provision": "vagrant reload --provision --color",
+        "test": [
+            "@composer validate",
+            "@code-review",
+            "@behat"
+        ],
+        "code-review": "phpcs -n",
+        "behat": "drush @local.drupalvm.com behat",
+        "login": "drush @local.drupalvm.com uli",
+        "deploy": "robo deploy --ansi",
         "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
         "pre-install-cmd": [
             "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
