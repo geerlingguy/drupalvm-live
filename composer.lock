@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e590445c079ea7978134c7fc29457231",
+    "content-hash": "ee7d771f4e810df036f630d0bc963381",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -5919,16 +5919,16 @@
         },
         {
             "name": "geerlingguy/drupal-vm",
-            "version": "4.4.1",
+            "version": "4.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/geerlingguy/drupal-vm.git",
-                "reference": "cb5ef2d9182b53c97dba57c5d926b46425adc3a3"
+                "reference": "bdf6a3cd003e6f4652ce8e8839fa7cc1d6674a89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/geerlingguy/drupal-vm/zipball/cb5ef2d9182b53c97dba57c5d926b46425adc3a3",
-                "reference": "cb5ef2d9182b53c97dba57c5d926b46425adc3a3",
+                "url": "https://api.github.com/repos/geerlingguy/drupal-vm/zipball/bdf6a3cd003e6f4652ce8e8839fa7cc1d6674a89",
+                "reference": "bdf6a3cd003e6f4652ce8e8839fa7cc1d6674a89",
                 "shasum": ""
             },
             "type": "vm",
@@ -5954,7 +5954,7 @@
                 "virtual machine",
                 "vm"
             ],
-            "time": "2017-04-01T12:22:15+00:00"
+            "time": "2017-04-12T22:30:08+00:00"
         },
         {
             "name": "instaclick/php-webdriver",
