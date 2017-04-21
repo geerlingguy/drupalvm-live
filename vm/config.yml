@@ -17,7 +17,7 @@ drupal_enable_modules:
 drupalvm_cron_jobs:
   - name: "Drupal Cron"
     minute: "*/15"
-    job: "{{ drush_path }} -r {{ drupal_core_path }} core-cron"
+    job: "{{ drush_path }} -r {{ drupal_core_path }} core-cron --quiet"
 
 # Other overrides.
 php_version: "7.1"
