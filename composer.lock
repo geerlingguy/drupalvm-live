@@ -5957,16 +5957,16 @@
         },
         {
             "name": "geerlingguy/drupal-vm",
-            "version": "4.4.3",
+            "version": "4.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/geerlingguy/drupal-vm.git",
-                "reference": "585148d38d771920e9f7b708b1805b0e9d2fea43"
+                "reference": "90c671d584c8d2e7196119b06e125946dd80ef3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/geerlingguy/drupal-vm/zipball/585148d38d771920e9f7b708b1805b0e9d2fea43",
-                "reference": "585148d38d771920e9f7b708b1805b0e9d2fea43",
+                "url": "https://api.github.com/repos/geerlingguy/drupal-vm/zipball/90c671d584c8d2e7196119b06e125946dd80ef3f",
+                "reference": "90c671d584c8d2e7196119b06e125946dd80ef3f",
                 "shasum": ""
             },
             "type": "vm",
@@ -5992,7 +5992,7 @@
                 "virtual machine",
                 "vm"
             ],
-            "time": "2017-04-21T03:31:43+00:00"
+            "time": "2017-04-24T17:57:19+00:00"
         },
         {
             "name": "instaclick/php-webdriver",

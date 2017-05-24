@@ -42,11 +42,12 @@ To run Drush commands on the site, wrap the commands in `docker exec`, like so:
   1. Create a DigitalOcean Droplet (or basically any other VPS that gives you full control/root). The root user account on this VM should have your SSH key already added.
   2. Copy the `example.vars.yml` file to `vars.yml` inside `vendor/geerlingguy/drupal-vm/examples/prod/bootstrap/` (for one-time use), and customize to your liking.
   3. Run the initialization playbook from the project root directory: `ansible-playbook -i vm/inventory vendor/geerlingguy/drupal-vm/examples/prod/bootstrap/init.yml -e "ansible_ssh_user=root"`
-  4. Run the main Drupal VM playbook to build the server: `DRUPALVM_ENV=prod ansible-playbook -i vm/inventory vendor/geerlingguy/drupal-vm/provisioning/playbook.yml -e "config_dir=$(pwd)/vm" --become --ask-become-pass --ask-vault-pass`
+  4. Run the main Drupal VM playbook to build the server: `DRUPALVM_ENV=prod ansible-playbook -i vm/inventory vendor/geerlingguy/drupal-vm/provisioning/playbook.yml -e "config_dir=$(pwd)/vm" --become --ask-become-pass`
 
 Notes:
 
   - Only the repository's owner has the SSH keys for accessing the actual live `prod.drupalvm.com` site, and the Vault password for the protected variables inside `secrets.yml`.
+  - When running the production playbook, you should ensure a `~/.ansible/prod-drupalvm-vault-password.txt` file exists, containing one line with the Vault password used to encrypt the `vm/secrets.yml` file. If the password file is not present, pass `--ask-vault-pass` to the `ansible-playbook` command and enter the password at runtime.
 
 ## Keeping things Secret
 
