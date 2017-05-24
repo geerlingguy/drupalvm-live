@@ -12,7 +12,7 @@ You should have the following installed on your local environment prior to worki
   2. PHP and Composer
   3. Vagrant plugins: `vagrant-vbguest`, `vagrant-hostsupdater`
 
-## Local setup
+## Local setup - Vagrant-based
 
 If this is the first time you've cloned the project, run the following commands to get started developing:
 
@@ -22,6 +22,16 @@ If this is the first time you've cloned the project, run the following commands 
 Once that's completed, you can visit [http://local.drupalvm.com/](http://local.drupalvm.com/) in your browser to see the site locally.
 
 > Note: You can remove the `secrets.yml` file from the `vm` directory if you want to avoid using the vault password for testing purposes. For the local environment, the variables in that file are overridden in `vagrant.config.yml` anyways.
+
+## Local setup - Docker-based
+
+  1. Edit your hosts file, and add the line: `192.168.88.10  local.drupalvm.com`
+  2. (If on Mac) Add an alias for the container's IP address: `sudo ifconfig lo0 alias 192.168.88.10/24`
+  3. Run `docker-compose up -d`.
+  4. Export the database from prod.drupalvm.com using MySQL.
+  5. Import the database into the local environment using MySQL.
+
+Once that's completed, you can visit [http://local.drupalvm.com/](http://local.drupalvm.com/) in your browser to see the site locally.
 
 ## Prod setup
 
