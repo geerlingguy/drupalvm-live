@@ -33,6 +33,10 @@ Once that's completed, you can visit [http://local.drupalvm.com/](http://local.d
 
 Once that's completed, you can visit [http://local.drupalvm.com/](http://local.drupalvm.com/) in your browser to see the site locally.
 
+To run Drush commands on the site, wrap the commands in `docker exec`, like so:
+
+    docker exec local-drupalvm bash -c "drush --uri=local.drupalvm.com --root=/var/www/drupalvm/drupal/web status"
+
 ## Prod setup
 
   1. Create a DigitalOcean Droplet (or basically any other VPS that gives you full control/root). The root user account on this VM should have your SSH key already added.
