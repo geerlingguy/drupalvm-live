@@ -1,38 +1,30 @@
-language: php
-php:
-  - 5.5
-  - 5.6
-  - 7.0
-
-sudo: false
+---
+services: docker
 
 env:
-  global:
-    - SIMPLETEST_DB=sqlite://tmp/site.sqlite
-    - SIMPLETEST_BASE_URL="http://127.0.0.1:8080"
-  matrix:
-    - RELEASE=stable COMPOSER_CHANNEL=stable
-    - RELEASE=dev COMPOSER_CHANNEL=stable
-    - RELEASE=stable COMPOSER_CHANNEL=snapshot
+  DOCKER_COMPOSE_VERSION: 1.19.0
 
 before_install:
-  - echo 'sendmail_path = /bin/true' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
-  - phpenv config-rm xdebug.ini
-  - composer --verbose self-update --$COMPOSER_CHANNEL
-  - composer --version
-
-install:
-  - composer --verbose install
+  # Upgrade Docker Compose.
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+  # Upgrade Docker.
+  - sudo apt-get update
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+  # Stop Travis CI's MySQL.
+  - sudo service mysql stop
 
 script:
-  - if [[ $RELEASE = dev ]]; then composer --verbose require --no-update drupal/core:8.1.x-dev; fi;
-  - if [[ $RELEASE = dev ]]; then composer --verbose update; fi;
-  - cd $TRAVIS_BUILD_DIR/web
-  - ./../vendor/bin/drush site-install --verbose --yes --db-url=sqlite://tmp/site.sqlite
-  - ./../vendor/bin/drush runserver http://127.0.0.1:8080 &
-  - sleep 3
-  # Skip core/tests/Drupal/Tests/ComposerIntegrationTest.php because web/ has no composer.json
-  # Ignore PageCache group temporarily, @see https://www.drupal.org/node/2770673
-  - ./../vendor/bin/phpunit -c core --testsuite unit --exclude-group Composer,DependencyInjection,PageCache
-  - ./../vendor/bin/drush
-  - ./../vendor/bin/drupal
+  # Bring up local Drupal VM copy.
+  - docker-compose up -d
+
+  # Install dependencies with Composer.
+  - docker exec --tty local-drupalvm env TERM=xterm bash -c "cd /var/www/drupalvm/drupal; composer install"
+
+  # Install the Drupal site.
+  - docker exec --tty local-drupalvm env TERM=xterm bash -c "cd /var/www/drupalvm/drupal/web; drush site-install -y"
+
+  # Run Behat tests.
+  - docker exec --tty local-drupalvm env TERM=xterm bash -c "cd /var/www/drupalvm/drupal/tests; ../vendor/bin/behat --config behat-docker.yml"

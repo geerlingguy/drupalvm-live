@@ -5,4 +5,4 @@ Feature: Test DrupalContext
 
   Scenario: Viewing content in a region
     Given I am on the homepage
-    Then I should see "This is a demonstration production Drupal 8 website" in the "content"
+    Then I should see "No front page content has been created yet." in the "content"
