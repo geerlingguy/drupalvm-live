@@ -21,11 +21,10 @@ script:
   - docker-compose up -d
 
   # Install dependencies with Composer.
-  - docker exec --tty local-drupalvm env TERM=xterm bash -c "cd $TRAVIS_BUILD_DIR; composer install"
+  - docker exec --tty local-drupalvm env TERM=xterm bash -c "cd /var/www/drupalvm/drupal; composer install"
 
   # Install the Drupal site.
-  - docker exec --tty local-drupalvm env TERM=xterm bash -c "cd $TRAVIS_BUILD_DIR; drush site-install -y"
-  # TODO.
+  - docker exec --tty local-drupalvm env TERM=xterm bash -c "cd /var/www/drupalvm/drupal/web; drush site-install -y"
 
   # Run Behat tests.
   # TODO.
