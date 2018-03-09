@@ -17,6 +17,7 @@ services:
       - 80:80
       - 443:443
       - 3306:3306
+      - 4444:4444
       - 8025:8025
 
     # Not strictly required, but custom DNS settings can help with stability.

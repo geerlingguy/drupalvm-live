@@ -27,4 +27,4 @@ script:
   - docker exec --tty local-drupalvm env TERM=xterm bash -c "cd /var/www/drupalvm/drupal/web; drush site-install -y"
 
   # Run Behat tests.
-  # TODO.
+  - docker exec --tty local-drupalvm env TERM=xterm bash -c "cd /var/www/drupalvm/drupal/tests; ../vendor/bin/behat --config behat-docker.yml"
