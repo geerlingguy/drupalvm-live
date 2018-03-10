@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+
+  drupal-vm:
+    image: geerlingguy/drupal-vm
+    container_name: local-drupalvm
+
+    ports:
+      - 81:80
+      - 4444:4444
+
+    # Not strictly required, but custom DNS settings can help with stability.
+    dns:
+      - '8.8.8.8'
+      - '8.8.4.4'
+
+    # Use of the `delegated` option currently requires the Docker Edge release.
+    volumes:
+      - ../:/var/www/drupalvm/drupal:rw,delegated
+
+    privileged: true
+    command: /lib/systemd/systemd

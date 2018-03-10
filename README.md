@@ -63,6 +63,16 @@ And when running Ansible commands, use:
 
 You can also pass a file path containing the vault password, if you need to do automated deployments. See Ansible's [Vault Documentation](http://docs.ansible.com/ansible/playbooks_vault.html#creating-encrypted-files) for more info.
 
+## Running Behat tests
+
+This codebase includes Behat behavioral tests in the `tests` directory. To run the tests, make sure you have the local environment running, then inside the tests directory, run:
+
+    # If using Drupal VM with Vagrant locally accessed at `local.drupalvm.com`.
+    ../vendor/bin/behat --config behat.yml
+    
+    # If using Drupal VM with Docker locally accessed at `localhost`.
+    ../vendor/bin/behat --config behat-docker.yml
+
 ## Author
 
 This project is maintained by [Jeff Geerling](https://www.jeffgeerling.com/), author of [Ansible for DevOps](https://www.ansiblefordevops.com) and maintainer of [Drupal VM](https://www.drupalvm.com).
